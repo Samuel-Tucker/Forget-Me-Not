@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Forget Me Not</title>
+    <link rel="stylesheet" href="sidepanel.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section id="searchView" class="view" aria-labelledby="searchTitle">
+        <h1 id="searchTitle" class="sr-only">Find a saved detail</h1>
+        <div class="search-row">
+          <label class="search-box">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></svg>
+            <input id="searchInput" type="search" placeholder="Search saved details…" autocomplete="off" autofocus>
+          </label>
+          <button id="settingsButton" class="icon-button" type="button" aria-label="Manage saved details" title="Manage saved details">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1.08-1.5 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.6 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.6h.08a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9v.08a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09A1.65 1.65 0 0 0 19.4 15Z"/></svg>
+          </button>
+        </div>
+
+        <div id="searchState" class="search-state">
+          <p id="emptyHint" class="quiet-message">Start typing to find something.</p>
+          <div id="results" class="results" role="listbox" aria-label="Matching saved details"></div>
+        </div>
+        <div id="toast" class="toast" role="status" aria-live="polite"></div>
+      </section>
+
+      <section id="settingsView" class="view settings-view" hidden aria-labelledby="settingsTitle">
+        <header class="settings-header">
+          <button id="backButton" class="icon-button back-button" type="button" aria-label="Back to search">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <div><p class="eyebrow">Forget Me Not</p><h1 id="settingsTitle">Saved details</h1></div>
+          <button id="addButton" class="primary-button" type="button">Add new</button>
+        </header>
+
+        <form id="detailForm" class="detail-form" hidden>
+          <input id="recordId" type="hidden">
+          <label>Name<input id="nameInput" required maxlength="80" placeholder="e.g. A Lucre Musket VAT number"></label>
+          <label>Type<input id="typeInput" maxlength="50" placeholder="e.g. VAT number or address"></label>
+          <label>Value<textarea id="valueInput" required rows="5" placeholder="The detail you want to copy"></textarea></label>
+          <label>Tags<input id="tagsInput" maxlength="200" placeholder="work, finance, company"></label>
+          <p class="field-help">Separate tags with commas.</p>
+          <div class="form-actions">
+            <button id="cancelButton" class="secondary-button" type="button">Cancel</button>
+            <button class="primary-button" type="submit">Save detail</button>
+          </div>
+        </form>
+
+        <div id="savedList" class="saved-list"></div>
+      </section>
+    </main>
+    <script type="module" src="sidepanel.js"></script>
+  </body>
+</html>

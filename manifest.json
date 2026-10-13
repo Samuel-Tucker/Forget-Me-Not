@@ -1,0 +1,17 @@
+{
+  "manifest_version": 3,
+  "name": "Forget Me Not",
+  "version": "1.0.0",
+  "description": "Keep frequently used details close at hand and copy them in a click.",
+  "minimum_chrome_version": "114",
+  "permissions": ["storage", "sidePanel", "clipboardWrite"],
+  "background": {
+    "service_worker": "service-worker.js"
+  },
+  "action": {
+    "default_title": "Open Forget Me Not"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
+  }
+}
